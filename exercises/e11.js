@@ -28,10 +28,7 @@ export const usersUrl = "http://localhost:3000/users/";
 
 const getLoginList = (arr) => {
   // Your code goes here...
-  let values = [];
-  arr.forEach((obj) => values.push(obj.login));
-  console.log(values);
-  return values;
+  return arr.map((user) => user.login);
 };
 
 /**
@@ -59,8 +56,9 @@ const getData = fetch(usersUrl);
 export const result = getData
   .then((res) => res.json())
   .then((parsed) => {
-    console.log("The PROMISE was RESOLVED");
-    return getLoginList(parsed);
+    const loginList = getLoginList(parsed);
+    console.log(loginList);
+    return loginList;
   });
 
 // === TEST YOURSELF ===

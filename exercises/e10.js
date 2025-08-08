@@ -1,33 +1,31 @@
 export const getFirstResolvedPromise = (promises) => {
   //*  write code to pass test ⬇ ️
-  return Promise.any(promises).then((value) => value);
+  return Promise.any(promises);
 };
 
 export const getFirstPromiseOrFail = (promises) => {
   //*  write code to pass test ⬇ ️
-  return Promise.race(promises).then((value) => value);
+  return Promise.race(promises);
 };
 
 export const getQuantityOfRejectedPromises = (promises) => {
   //*  write code to pass test ⬇ ️
-  return Promise.allSettled(promises).then((values) => {
-    let quantity = 0;
-    values.forEach((obj) => {
-      if (obj.status === "rejected") quantity++;
-    });
-    return quantity;
-  });
+  return Promise.allSettled(promises).then(
+    (arrOfValues) =>
+      arrOfValues.filter(
+        (settledPromise) => settledPromise.status === "rejected"
+      ).length
+  );
 };
 
 export const getQuantityOfFulfilledPromises = (promises) => {
   //*  write code to pass test ⬇ ️
-  return Promise.allSettled(promises).then((values) => {
-    let quantity = 0;
-    values.forEach((obj) => {
-      if (obj.status === "fulfilled") quantity++;
-    });
-    return quantity;
-  });
+  return Promise.allSettled(promises).then(
+    (arrOfValues) =>
+      arrOfValues.filter(
+        (settledPromise) => settledPromise.status === "fulfilled"
+      ).length
+  );
 };
 
 //!  ⬇ ⬇ ⬇ ⬇ Don't Edit This Array ⬇ ⬇ ⬇ ⬇
