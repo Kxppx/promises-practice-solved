@@ -75,7 +75,7 @@ export const promise = Promise.resolve(iterate(1))
   .then(iterate)
   .then(iterate)
   .then(iterate)
-  .catch((err) => onReject(err));
+  .catch(onReject);
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

@@ -48,7 +48,6 @@ export const fetchCharacterById = (id) => {
     setTimeout(() => {
       if (!validIds.includes(id))
         reject(`we do not have a character with the id of ${id}`);
-
       return resolve(allCharacters.find((character) => character.id === id));
     }, 1000);
   });

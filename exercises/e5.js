@@ -25,7 +25,7 @@ export const getPromise = () => {
   // Your code goes here...
   return new Promise((res) => {
     res(attachTitle("MANHATTAN"));
-  }).then((value) => console.log(value));
+  }).then(console.log);
 };
 
 // === TEST YOURSELF ===
